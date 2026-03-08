@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-bg: #f5f0e8;
+        --color-surface: rgba(255, 255, 255, 0.82);
+        --color-surface-muted: #f7f4ee;
+        --color-border: rgba(148, 163, 184, 0.18);
+        --color-text: #0f172a;
+        --color-primary: #0f766e;
+    }
+
+    * {
+        @apply border-[var(--color-border)];
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-[var(--color-bg)] font-sans text-[var(--color-text)] antialiased;
+        background-image: radial-gradient(circle at top, rgba(16, 185, 129, 0.08), transparent 28%), linear-gradient(180deg, #f8f5ef 0%, #f2ede4 100%);
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+}
+
+@layer components {
+    .surface-panel {
+        @apply rounded-[2rem] border border-white/70 bg-[var(--color-surface)] shadow-soft backdrop-blur;
+    }
+
+    .section-kicker {
+        @apply text-xs font-bold uppercase tracking-[0.28em] text-slate-500;
+    }
+
+    .badge {
+        @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold;
+    }
+
+    .badge-emerald {
+        @apply bg-emerald-50 text-emerald-700;
+    }
+
+    .badge-rose {
+        @apply bg-rose-50 text-rose-700;
+    }
+
+    .badge-amber {
+        @apply bg-amber-50 text-amber-700;
+    }
+
+    .badge-slate {
+        @apply bg-slate-100 text-slate-700;
+    }
+
+    .app-link {
+        @apply flex items-start gap-3 rounded-2xl px-4 py-3 text-sm transition;
+    }
+
+    .app-link-active {
+        @apply bg-slate-950 text-white shadow-soft;
+    }
+
+    .app-link-idle {
+        @apply text-slate-600 hover:bg-white hover:text-slate-950;
+    }
+
+    .glass-topbar {
+        @apply border-b border-white/70 bg-white/70 backdrop-blur;
+    }
+
+    .data-table {
+        @apply min-w-full divide-y divide-slate-200 text-sm;
+    }
+
+    .data-table thead th {
+        @apply px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.2em] text-slate-500;
+    }
+
+    .data-table tbody td {
+        @apply px-4 py-4 align-top text-slate-600;
+    }
+
+    .auth-card {
+        @apply w-full overflow-hidden rounded-[2rem] border border-white/70 bg-white/85 p-6 shadow-soft backdrop-blur sm:p-8;
+    }
+}
