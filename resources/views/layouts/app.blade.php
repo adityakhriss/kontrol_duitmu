@@ -35,8 +35,7 @@
                         </button>
 
                         <div>
-                            <p class="section-kicker">{{ $activeNavigation === 'admin' ? 'Admin command center' : 'Personal finance workspace' }}</p>
-                            <h1 class="mt-1 text-2xl font-bold text-slate-950 sm:text-3xl">{{ $pageHeading }}</h1>
+                            <h1 class="text-2xl font-bold text-slate-950 sm:text-3xl">{{ $pageHeading }}</h1>
                             <p class="mt-1 text-sm text-slate-500 sm:text-base">{{ $pageDescription }}</p>
                         </div>
                     </div>

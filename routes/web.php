@@ -25,7 +25,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     Route::get('/accounts', [PaymentAccountController::class, 'index'])->name('accounts.index');
-    Route::patch('/accounts/{paymentAccount}', [PaymentAccountController::class, 'update'])->name('accounts.update');
 
     Route::get('/accounts/transfer', [TransferController::class, 'create'])->name('accounts.transfer');
     Route::post('/accounts/transfer', [TransferController::class, 'store'])->name('transfers.store');

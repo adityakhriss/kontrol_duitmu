@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="mb-8">
         <span class="badge badge-emerald">Welcome back</span>
-        <h1 class="mt-4 font-display text-4xl text-slate-950">Masuk ke workspace</h1>
+        <h1 class="mt-4 font-display text-4xl text-slate-950">Masuk ke akun</h1>
         <p class="mt-3 text-sm leading-7 text-slate-500">Lanjutkan pencatatan transaksi, tagihan, dan goal keuanganmu dari satu dashboard yang rapi.</p>
     </div>
 

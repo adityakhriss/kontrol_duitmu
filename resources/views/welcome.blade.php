@@ -16,31 +16,11 @@
         </div>
 
         <div class="relative mx-auto flex min-h-screen max-w-7xl flex-col px-6 py-6 lg:px-8">
-            <header class="flex items-center justify-between rounded-full border border-white/70 bg-white/75 px-5 py-3 shadow-soft backdrop-blur">
-                <a href="{{ url('/') }}" class="flex items-center gap-3">
-                    <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-sm font-bold text-white shadow-soft">KD</span>
-                    <span>
-                        <span class="block text-sm font-semibold text-slate-500">Personal finance desk</span>
-                        <span class="block font-display text-xl text-slate-950">Kontrol Duitmu</span>
-                    </span>
-                </a>
-
-                <nav class="flex items-center gap-3 text-sm font-semibold">
-                    @auth
-                        <a href="{{ route('dashboard') }}" class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-slate-700 transition hover:border-emerald-300 hover:text-emerald-700">Masuk dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="hidden text-slate-600 transition hover:text-slate-950 sm:inline-flex">Login</a>
-                        <a href="{{ route('register') }}" class="inline-flex items-center rounded-full bg-slate-950 px-4 py-2 text-white transition hover:bg-emerald-700">Coba sekarang</a>
-                    @endauth
-                </nav>
-            </header>
-
             <main class="grid flex-1 items-center gap-10 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">
                 <section class="space-y-8">
-                    <span class="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-800">Manual input, smart insight, one calm dashboard</span>
                     <div class="space-y-5">
                         <h1 class="max-w-3xl font-display text-5xl leading-tight text-slate-950 sm:text-6xl">Rapikan uang harian, tagihan, dan target finansial dalam satu ruang kerja yang enak dipakai.</h1>
-                        <p class="max-w-2xl text-lg leading-8 text-slate-600">Kontrol Duitmu membantu mencatat saldo tunai, bank, e-wallet, transaksi, tagihan rutin, goal tabungan, hutang, dan investasi tanpa integrasi finansial otomatis yang rumit.</p>
+                        <p class="max-w-2xl text-lg leading-8 text-slate-600">Kontrol Duitmu membantu kamu mengelola saldo, transaksi, tagihan, goal tabungan, hutang, dan investasi dalam satu aplikasi yang rapi, jelas, dan nyaman dipakai setiap hari.</p>
                     </div>
 
                     <div class="flex flex-col gap-4 sm:flex-row">

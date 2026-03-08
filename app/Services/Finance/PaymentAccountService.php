@@ -52,24 +52,4 @@ class PaymentAccountService
 
         return $account->refresh();
     }
-
-    public function adjustBalance(User $user, PaymentAccount $account, float $newBalance, ?string $notes = null): PaymentAccount
-    {
-        $currentBalance = (float) $account->balance;
-        $difference = $newBalance - $currentBalance;
-
-        if ($difference === 0.0) {
-            return $account;
-        }
-
-        return $this->applyMutation(
-            user: $user,
-            account: $account,
-            mutationType: 'adjustment',
-            direction: $difference > 0 ? 'credit' : 'debit',
-            amount: abs($difference),
-            mutationDate: now(),
-            description: $notes ?: 'Penyesuaian saldo manual',
-        );
-    }
 }

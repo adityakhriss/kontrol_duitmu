@@ -64,24 +64,6 @@ test('user can transfer between accounts and both balances are updated', functio
         ->and($user->paymentAccounts()->withCount('mutations')->get()->sum('mutations_count'))->toBe(2);
 });
 
-test('user can update payment account name and balance', function () {
-    $user = User::factory()->create();
-    $account = $user->paymentAccounts()->where('slug', 'bank')->firstOrFail();
-
-    $response = $this->actingAs($user)->patch(route('accounts.update', $account), [
-        'name' => 'Bank Operasional',
-        'balance' => 725000,
-        'notes' => 'Sinkron saldo rekening',
-    ]);
-
-    $response->assertRedirect();
-
-    expect($account->fresh()->name)->toBe('Bank Operasional')
-        ->and((float) $account->fresh()->balance)->toBe(725000.0)
-        ->and($account->mutations()->count())->toBe(1)
-        ->and($account->mutations()->latest('id')->first()?->mutation_type)->toBe('adjustment');
-});
-
 test('admin can update integration settings', function () {
     $admin = User::factory()->create(['role' => 'admin']);
 

@@ -18,9 +18,10 @@
         <div class="relative mx-auto flex min-h-screen max-w-7xl flex-col px-6 py-6 lg:px-8">
             <div class="flex items-center justify-between">
                 <a href="{{ url('/') }}" class="flex items-center gap-3">
-                    <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-sm font-bold text-white shadow-soft">KD</span>
+                    <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-soft">
+                        <x-application-logo class="h-7 w-7 text-white" />
+                    </span>
                     <span>
-                        <span class="block text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Finance workspace</span>
                         <span class="block font-display text-xl text-slate-950">Kontrol Duitmu</span>
                     </span>
                 </a>
@@ -30,7 +31,6 @@
 
             <div class="grid flex-1 items-center gap-10 py-10 lg:grid-cols-[0.95fr_0.8fr] lg:py-16">
                 <div class="hidden space-y-6 lg:block">
-                    <span class="badge badge-emerald">Manual tracking, clear visibility</span>
                     <h1 class="max-w-xl font-display text-5xl leading-tight text-slate-950">Bangun kebiasaan finansial yang tertata tanpa dashboard yang melelahkan.</h1>
                     <p class="max-w-xl text-lg leading-8 text-slate-600">Setiap pemasukan, pengeluaran, transfer internal, dan target tabungan tersimpan dalam layout yang ringkas dan nyaman di desktop maupun mobile.</p>
                     <div class="grid max-w-xl gap-4 sm:grid-cols-2">
