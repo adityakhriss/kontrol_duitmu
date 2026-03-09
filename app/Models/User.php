@@ -120,4 +120,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(GoogleCalendarConnection::class);
     }
+
+    public function aiFinancialInsights(): HasMany
+    {
+        return $this->hasMany(AiFinancialInsight::class);
+    }
+
+    public function financialReports(): HasMany
+    {
+        return $this->hasMany(FinancialReport::class);
+    }
 }

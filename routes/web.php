@@ -8,6 +8,7 @@ use App\Http\Controllers\AnalysisController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DebtController;
+use App\Http\Controllers\FinancialReportController;
 use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PaymentAccountController;
@@ -54,6 +55,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/investments/{investment}', [InvestmentController::class, 'destroy'])->name('investments.destroy');
     Route::get('/news', [NewsController::class, 'index'])->name('news.index');
     Route::get('/analysis', [AnalysisController::class, 'index'])->name('analysis.index');
+    Route::get('/reports', [FinancialReportController::class, 'index'])->name('reports.index');
+    Route::post('/reports', [FinancialReportController::class, 'store'])->name('reports.store');
+    Route::get('/reports/{report}', [FinancialReportController::class, 'show'])->name('reports.show');
+    Route::get('/reports/{report}/pdf', [FinancialReportController::class, 'downloadPdf'])->name('reports.pdf');
 
     Route::prefix('admin')->name('admin.')->middleware('can:access-admin')->group(function () {
         Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
@@ -64,6 +69,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/api-settings', [IntegrationSettingsController::class, 'edit'])->name('api-settings');
         Route::put('/api-settings', [IntegrationSettingsController::class, 'update'])->name('api-settings.update');
         Route::post('/api-settings/sync', [IntegrationSettingsController::class, 'syncNow'])->name('api-settings.sync');
+        Route::post('/api-settings/test-yahoo-finance', [IntegrationSettingsController::class, 'testYahooFinance'])->name('api-settings.test-yahoo-finance');
+        Route::post('/api-settings/test-ai-provider', [IntegrationSettingsController::class, 'testAiProvider'])->name('api-settings.test-ai-provider');
         Route::get('/sync-logs', [SyncLogController::class, 'index'])->name('sync-logs');
     });
 });

@@ -69,6 +69,8 @@ class ProfileController extends Controller
 
         DB::transaction(function () use ($user): void {
             $user->googleCalendarConnections()->delete();
+            $user->aiFinancialInsights()->delete();
+            $user->financialReports()->delete();
             $user->bills()->delete();
             $user->savingGoals()->delete();
             $user->debts()->delete();

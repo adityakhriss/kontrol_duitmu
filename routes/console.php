@@ -9,4 +9,6 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Schedule::command('finance:sync-investment-news')->hourly();
+Schedule::command('finance:sync-investment-market-data')->everyFifteenMinutes();
 Schedule::command('finance:sync-google-calendar-bills')->everyThirtyMinutes();
+Schedule::command('finance:generate-monthly-ai-insights')->monthlyOn(1, '01:00');

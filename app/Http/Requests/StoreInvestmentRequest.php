@@ -18,6 +18,8 @@ class StoreInvestmentRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'ticker' => ['nullable', 'string', 'max:50'],
+            'market_symbol' => ['nullable', 'string', 'max:50'],
+            'market_exchange' => ['nullable', 'string', 'max:50'],
             'type' => ['required', 'string', 'max:30'],
             'platform' => ['nullable', 'string', 'max:255'],
             'payment_account_id' => [
@@ -27,7 +29,6 @@ class StoreInvestmentRequest extends FormRequest
             'transaction_date' => ['required', 'date'],
             'units' => ['required', 'numeric', 'min:0.00000001'],
             'buy_price' => ['required', 'numeric', 'min:0.01'],
-            'current_price' => ['nullable', 'numeric', 'min:0.01'],
             'notes' => ['nullable', 'string', 'max:2000'],
         ];
     }

@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Kontrol Duitmu</title>
+        <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=fraunces:600,700|manrope:400,500,600,700,800&display=swap" rel="stylesheet" />
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -42,7 +43,7 @@
                         <div class="surface-panel p-5">
                             <p class="text-sm text-slate-500">Integrasi roadmap</p>
                             <p class="mt-2 text-3xl font-extrabold text-slate-950">2</p>
-                            <p class="mt-2 text-sm text-slate-600">Alpha Vantage dan Google Calendar.</p>
+                            <p class="mt-2 text-sm text-slate-600">RSS berita IDX, Yahoo Finance, dan Google Calendar.</p>
                         </div>
                     </div>
                 </section>

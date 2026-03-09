@@ -15,7 +15,7 @@ class DashboardController extends Controller
         return view('admin.dashboard', [
             'totalUsers' => User::query()->count(),
             'activeUsers' => User::query()->where('is_active', true)->count(),
-            'apiConfig' => ApiConfig::query()->where('provider', 'alpha_vantage')->first(),
+            'apiConfig' => ApiConfig::query()->where('provider', 'rss_news')->first(),
             'latestLogs' => ApiSyncLog::query()->latest()->take(5)->get(),
         ]);
     }

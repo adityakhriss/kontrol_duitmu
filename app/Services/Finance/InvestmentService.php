@@ -22,18 +22,24 @@ class InvestmentService
         return DB::transaction(function () use ($user, $data): Investment {
             $units = (float) $data['units'];
             $buyPrice = (float) $data['buy_price'];
-            $currentPrice = (float) ($data['current_price'] ?? $data['buy_price']);
+            $currentPrice = $buyPrice;
 
             $investment = Investment::query()->create([
                 'user_id' => $user->id,
                 'name' => $data['name'],
-                'ticker' => $data['ticker'] ?? null,
+                'ticker' => $data['ticker'] ?? $data['market_symbol'] ?? null,
+                'market_symbol' => $data['market_symbol'] ?? null,
+                'market_exchange' => $data['market_exchange'] ?? null,
+                'market_provider' => ! empty($data['market_symbol']) ? 'yahoo_finance' : null,
                 'type' => $data['type'],
                 'units' => 0,
                 'buy_price' => 0,
                 'current_price' => $currentPrice,
                 'total_cost' => 0,
                 'current_value' => 0,
+                'market_change_percent' => 0,
+                'market_change_amount' => 0,
+                'market_status' => ! empty($data['market_symbol']) ? 'pending' : 'manual',
                 'platform' => $data['platform'] ?? null,
                 'purchase_date' => null,
                 'notes' => $data['notes'] ?? null,
@@ -45,7 +51,6 @@ class InvestmentService
                 'transaction_date' => $data['transaction_date'],
                 'units' => $units,
                 'price' => $buyPrice,
-                'current_price' => $currentPrice,
                 'notes' => $data['notes'] ?? 'Pembelian awal '.$data['name'],
             ], false);
 

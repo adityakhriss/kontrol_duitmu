@@ -10,7 +10,7 @@ class InvestmentNews extends Model
     use HasFactory;
 
     protected $fillable = [
-        'provider', 'external_id', 'title', 'category', 'source', 'url', 'summary', 'published_at', 'payload',
+        'provider', 'external_id', 'title', 'category', 'source', 'url', 'image_url', 'summary', 'published_at', 'payload',
     ];
 
     protected function casts(): array

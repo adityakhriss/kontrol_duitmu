@@ -87,7 +87,7 @@ return new class extends Migration
 
         Schema::create('investment_news', function (Blueprint $table) {
             $table->id();
-            $table->string('provider')->default('alpha_vantage');
+            $table->string('provider')->default('rss_news');
             $table->string('external_id')->nullable();
             $table->string('title');
             $table->string('category')->nullable();

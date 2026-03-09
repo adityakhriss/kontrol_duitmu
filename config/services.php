@@ -35,15 +35,26 @@ return [
         ],
     ],
 
-    'alpha_vantage' => [
-        'base_url' => env('ALPHA_VANTAGE_BASE_URL', 'https://www.alphavantage.co/query'),
-        'key' => env('ALPHA_VANTAGE_API_KEY'),
+    'rss_news' => [
+        'sources' => array_filter(array_map('trim', explode(',', (string) env('RSS_NEWS_SOURCES', 'https://www.cnbcindonesia.com/market/rss,https://www.antaranews.com/rss/ekonomi.xml')))),
     ],
 
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT_URI'),
+    ],
+
+    'yahoo_finance' => [
+        'base_url' => env('YAHOO_FINANCE_BASE_URL', 'https://query1.finance.yahoo.com'),
+    ],
+
+    'openrouter' => [
+        'base_url' => env('OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1'),
+        'key' => env('OPENROUTER_API_KEY'),
+        'model' => env('OPENROUTER_MODEL', 'openrouter/auto'),
+        'site_url' => env('OPENROUTER_SITE_URL', env('APP_URL')),
+        'app_name' => env('OPENROUTER_APP_NAME', env('APP_NAME', 'Kontrol Duitmu')),
     ],
 
 ];

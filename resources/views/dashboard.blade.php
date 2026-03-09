@@ -99,7 +99,7 @@
         </section>
 
         <section class="grid gap-4 xl:grid-cols-[0.95fr_1.05fr]">
-            <x-ui.panel title="Berita investasi" description="Disiapkan untuk feed dari Alpha Vantage.">
+            <x-ui.panel title="Berita investasi" description="Ringkasan headline terbaru dari feed RSS pasar modal Indonesia.">
                 <div class="space-y-3">
                     @forelse ($news as $newsItem)
                         <article class="rounded-[1.5rem] border border-slate-200 bg-white p-4">

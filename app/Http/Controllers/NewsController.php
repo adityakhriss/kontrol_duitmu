@@ -10,9 +10,11 @@ class NewsController extends Controller
 {
     public function index(): View
     {
+        $newsConfig = ApiConfig::query()->where('provider', 'rss_news')->first();
+
         return view('news.index', [
-            'news' => InvestmentNews::query()->latest('published_at')->paginate(12),
-            'apiConfig' => ApiConfig::query()->where('provider', 'alpha_vantage')->first(),
+            'news' => InvestmentNews::query()->latest('published_at')->paginate(10),
+            'newsConfig' => $newsConfig,
         ]);
     }
 }

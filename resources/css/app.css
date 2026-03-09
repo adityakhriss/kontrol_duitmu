@@ -91,3 +91,51 @@
         @apply w-full overflow-hidden rounded-[2rem] border border-white/70 bg-white/85 p-6 shadow-soft backdrop-blur sm:p-8;
     }
 }
+
+@media print {
+    body {
+        background: #ffffff !important;
+        background-image: none !important;
+    }
+
+    .glass-topbar,
+    aside,
+    nav.fixed,
+    .print\:hidden {
+        display: none !important;
+    }
+
+    main {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .surface-panel {
+        border: 1px solid #e2e8f0 !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        break-inside: avoid;
+    }
+
+    .report-print-layout {
+        gap: 1rem !important;
+    }
+
+    .report-print-header {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+        margin-bottom: 1rem;
+    }
+
+    .badge,
+    .rounded-\[1\.5rem\],
+    .rounded-\[1\.75rem\],
+    .rounded-\[2rem\] {
+        border-radius: 0.75rem !important;
+    }
+}

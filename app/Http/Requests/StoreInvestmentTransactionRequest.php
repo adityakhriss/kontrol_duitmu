@@ -31,7 +31,6 @@ class StoreInvestmentTransactionRequest extends FormRequest
             'transaction_date' => ['required', 'date'],
             'units' => ['required', 'numeric', 'min:0.00000001'],
             'price' => ['required', 'numeric', 'min:0.01'],
-            'current_price' => ['nullable', 'numeric', 'min:0.01'],
             'notes' => ['nullable', 'string', 'max:2000'],
         ];
     }

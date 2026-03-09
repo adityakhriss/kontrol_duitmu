@@ -4,7 +4,7 @@
         ? [
             ['label' => 'Dashboard', 'route' => 'admin.dashboard', 'description' => 'Ringkasan sistem'],
             ['label' => 'Users', 'route' => 'admin.users', 'description' => 'Kelola akun user'],
-            ['label' => 'API Berita', 'route' => 'admin.api-settings', 'description' => 'Alpha Vantage'],
+            ['label' => 'API', 'route' => 'admin.api-settings', 'description' => 'Provider & koneksi'],
             ['label' => 'Sync Logs', 'route' => 'admin.sync-logs', 'description' => 'Riwayat sinkronisasi'],
           ]
         : [
@@ -17,6 +17,7 @@
             ['label' => 'Investasi', 'route' => 'investments.index', 'description' => 'Portofolio aset'],
             ['label' => 'Berita', 'route' => 'news.index', 'description' => 'Insight pasar'],
             ['label' => 'Analisis', 'route' => 'analysis.index', 'description' => 'Cashflow & tren'],
+            ['label' => 'Laporan', 'route' => 'reports.index', 'description' => 'Ringkasan keuangan'],
           ];
 @endphp
 
@@ -34,7 +35,9 @@
         <nav class="flex-1 space-y-2 overflow-y-auto pr-1">
             @foreach ($links as $link)
                 @php
-                    $active = request()->routeIs($link['route']);
+                    $active = $link['route'] === 'reports.index'
+                        ? request()->routeIs('reports.*')
+                        : request()->routeIs($link['route']);
                     $iconClasses = $active ? 'bg-white/10 text-white' : 'bg-slate-100 text-slate-700';
                 @endphp
                 <a href="{{ route($link['route']) }}" class="app-link {{ $active ? 'app-link-active' : 'app-link-idle' }}">
@@ -86,6 +89,13 @@
                             @case('analysis.index')
                                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 19h16M7 16l3-4 3 2 4-6" />
+                                </svg>
+                                @break
+                            @case('reports.index')
+                            @case('reports.show')
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 3v5h5M9 13h6M9 17h6" />
                                 </svg>
                                 @break
                             @case('admin.users')
@@ -140,7 +150,9 @@
         <nav class="space-y-2 overflow-y-auto">
             @foreach ($links as $link)
                 @php
-                    $active = request()->routeIs($link['route']);
+                    $active = $link['route'] === 'reports.index'
+                        ? request()->routeIs('reports.*')
+                        : request()->routeIs($link['route']);
                     $iconClasses = $active ? 'bg-white/10 text-white' : 'bg-slate-100 text-slate-700';
                 @endphp
                 <a href="{{ route($link['route']) }}" class="app-link {{ $active ? 'app-link-active' : 'app-link-idle' }}" @click="navOpen = false">
@@ -173,6 +185,10 @@
                                 @break
                             @case('analysis.index')
                                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 19h16M7 16l3-4 3 2 4-6" /></svg>
+                                @break
+                            @case('reports.index')
+                            @case('reports.show')
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 3v5h5M9 13h6M9 17h6" /></svg>
                                 @break
                             @case('admin.users')
                                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 19v-1a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v1M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 9v-1a4 4 0 0 0-3-3.87M15 4.13a3 3 0 0 1 0 5.74" /></svg>
